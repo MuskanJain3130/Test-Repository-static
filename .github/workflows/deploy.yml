@@ -38,9 +38,9 @@ jobs:
     - name: Notify Success
       if: success()
       run: |
-        curl -X POST https://rebuttal-slashing-glove.ngrok-free.dev/api/UnifiedDeployment/webhook/github -H "Content-Type: application/json" -d '{"deploymentId": "6a27ee465d409b6828e3988b", "status": "success"}'
+        curl -X POST https://rebuttal-slashing-glove.ngrok-free.dev/api/UnifiedDeployment/webhook/github -H "Content-Type: application/json" -d '{"deploymentId": "6a27f75822365e1fa6a86533", "status": "success"}'
 
     - name: Notify Failure
       if: failure()
       run: |
-        curl -X POST https://rebuttal-slashing-glove.ngrok-free.dev/api/UnifiedDeployment/webhook/github -H "Content-Type: application/json" -d '{"deploymentId": "6a27ee465d409b6828e3988b", "status": "failed"}'
+        curl -X POST https://rebuttal-slashing-glove.ngrok-free.dev/api/UnifiedDeployment/webhook/github -H "Content-Type: application/json" -d '{"deploymentId": "6a27f75822365e1fa6a86533", "status": "failed"}'
