@@ -34,3 +34,13 @@ jobs:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
+
+    - name: Notify Success
+      if: success()
+      run: |
+        curl -X POST https://rebuttal-slashing-glove.ngrok-free.dev/api/UnifiedDeployment/webhook/github -H "Content-Type: application/json" -d '{"deploymentId": "6a27dccdc51558a50c700c0b", "status": "success"}'
+
+    - name: Notify Failure
+      if: failure()
+      run: |
+        curl -X POST https://rebuttal-slashing-glove.ngrok-free.dev/api/UnifiedDeployment/webhook/github -H "Content-Type: application/json" -d '{"deploymentId": "6a27dccdc51558a50c700c0b", "status": "failed"}'
